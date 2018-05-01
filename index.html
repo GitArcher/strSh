@@ -2,6 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
     <title>Сайтец</title>
     <link rel="stylesheet" href="./style.css">
   </head>
@@ -10,17 +11,18 @@
 
       <div class="header ">
         <div class="head">
-          <img src="./menu2.png" alt="">
           <div class="logo">
             <span>logo</span>
           </div>
-          <span class="name">Строительно-производственная компания СОЮЗ</span>
+          <img id="btn-menu" src="./menu2.png" alt="">
           <div class="call">
             <span>call</span>
           </div>
         </div>
+      </div>
 
-        <div class="menu">
+      <div class="menu">
+        <div class="menu-content">
           <div class="about">
             <span>О Компании</span>
           </div>
@@ -40,12 +42,26 @@
       </div>
 
       <div class="content">
-        <span class="">ля ля тополя</span>
+        <div class="main">
+          <img src="./View3.jpg" alt="">
+        </div>
+        <span class="">СЕЕЕЕЕМПАААААЙ, нья >_<, Kurisu Makise? </span>
       </div>
 
       <div class="info">
         <span class="">Инста Века Твитор и прочее соцэал</span>
       </div>
+
+      <script>
+      let menuList = document.getElementsByClassName('menu')[0];
+        document.getElementById('btn-menu').onclick = function() {
+          if (menuList.style.display == 'flex') {
+            menuList.style.display = 'none';
+          } else {
+            menuList.style.display = 'flex';
+          }
+        }
+      </script>
 
   </body>
 </html>
