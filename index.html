@@ -2,8 +2,8 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width">
-    <title>Сайтец</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Какое-то название</title>
     <link rel="stylesheet" href="./style.css">
   </head>
 
@@ -23,19 +23,19 @@
 
       <div class="menu">
         <div class="menu-content">
-          <div class="about">
+          <div class="about point">
             <span>О Компании</span>
           </div>
-          <div class="rem">
+          <div class="rem point">
             <span>Ремонт и отделка</span>
           </div>
-          <div class="design">
+          <div class="design point">
             <span>Дизайн интерьера</span>
           </div>
-          <div class="lands">
+          <div class="lands point">
             <span>Ландшафтные работы</span>
           </div>
-          <div class="msg">
+          <div class="msg point">
             <span>Контакты</span>
           </div>
         </div>
@@ -43,24 +43,31 @@
 
       <div class="content">
         <div class="main">
-          <img src="./View3.jpg" alt="">
         </div>
-        <span class="">СЕЕЕЕЕМПАААААЙ, нья >_<, Kurisu Makise? </span>
+        <span class="">место под контент (автоматическое разширение)</span>
       </div>
 
       <div class="info">
-        <span class="">Инста Века Твитор и прочее соцэал</span>
+        <span class="">место под соцсети</span>
       </div>
 
       <script>
-      let menuList = document.getElementsByClassName('menu')[0];
+      let menu = document.getElementsByClassName('menu')[0];
+      let menuList = document.getElementsByClassName('point');
+      let content = document.getElementsByClassName('content')[0];
         document.getElementById('btn-menu').onclick = function() {
-          if (menuList.style.display == 'flex') {
-            menuList.style.display = 'none';
+          if (menu.style.display == 'flex') {
+            menu.style.display = 'none';
           } else {
-            menuList.style.display = 'flex';
-          }
-        }
+            menu.style.display = 'flex';
+          };
+        };
+      for (let point of menuList) {
+        point.onclick = function () {
+          content.innerHTML = "Контент для пункта: "+point.innerText;
+          menu.style.display = 'none'
+        };
+      }
       </script>
 
   </body>
