@@ -4,16 +4,16 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1">
     <title>Какое-то название</title>
-    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./res/style.css">
   </head>
 
   <body>
 
       <div class="header ">
         <div class="head">
-          <img id="btn-menu" src="./menu2.png" alt="">
-          <img src="./logo.png" alt="">
-          <img src="./call.png" alt="">
+          <img id="btn-menu" src="./res/menu2.png" alt="">
+          <img src="./res/logo.png" alt="">
+          <img src="./res/call.png" alt="">
         </div>
       </div>
 
@@ -55,10 +55,10 @@
       let btnMenu = document.getElementById('btn-menu');
         btnMenu.onclick = function() {
           if (menu.style.display == 'flex') {
-            btnMenu.src = "./menu2.png";
+            btnMenu.src = "./res/menu2.png";
             menu.style.display = 'none';
           } else {
-            btnMenu.src = "./close.png"
+            btnMenu.src = "./res/close.png"
             menu.style.display = 'flex';
           };
         };
