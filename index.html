@@ -2,8 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, minimal-ui">
-    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1">
     <title>Какое-то название</title>
     <link rel="stylesheet" href="./style.css">
   </head>
@@ -12,29 +11,26 @@
 
       <div class="header ">
         <div class="head">
-          <div class="logo">
-            <span>logo</span>
-          </div>
           <img id="btn-menu" src="./menu2.png" alt="">
-          <div class="call">
-            <span>call</span>
-          </div>
+          <img src="./logo.png" alt="">
+          <img src="./call.png" alt="">
         </div>
       </div>
 
       <div class="menu">
         <div class="menu-content">
+          <div class="rbrnd">
+            <span>Rebr</span>
+            <span>and</span>
+          </div>
           <div class="about point">
-            <span>О Компании</span>
+            <span>О нас</span>
           </div>
           <div class="rem point">
-            <span>Ремонт и отделка</span>
+            <span>Услуги</span>
           </div>
           <div class="design point">
-            <span>Дизайн интерьера</span>
-          </div>
-          <div class="lands point">
-            <span>Ландшафтные работы</span>
+            <span>Портфолио</span>
           </div>
           <div class="msg point">
             <span>Контакты</span>
@@ -53,20 +49,16 @@
       </div>
 
       <script>
-      window.addEventListener("load",function() {
-	// Set a timeout...
-	setTimeout(function(){
-		// Hide the address bar!
-		window.scrollTo(0, 1);
-	}, 0);
-});
       let menu = document.getElementsByClassName('menu')[0];
       let menuList = document.getElementsByClassName('point');
       let content = document.getElementsByClassName('content')[0];
-        document.getElementById('btn-menu').onclick = function() {
+      let btnMenu = document.getElementById('btn-menu');
+        btnMenu.onclick = function() {
           if (menu.style.display == 'flex') {
+            btnMenu.src = "./menu2.png";
             menu.style.display = 'none';
           } else {
+            btnMenu.src = "./close.png"
             menu.style.display = 'flex';
           };
         };
