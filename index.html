@@ -5,21 +5,28 @@
     <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1">
     <title>Какое-то название</title>
     <link rel="stylesheet" href="./res/style.css">
+    <script src="./res/about.js"></script>
   </head>
 
   <body>
 
       <div class="header ">
-        <div class="head">
-          <img id="btn-menu" src="./res/menu2.png" alt="">
-          <img src="./res/logo.png" alt="">
-          <img src="./res/call.png" alt="">
-        </div>
+
+          <div class="btn-area">
+            <img id="btn-menu" src="./res/menu2.png" alt="">
+          </div>
+          <div class="">
+            <img src="./res/logo.png" alt="">
+          </div>
+          <div class="">
+            <img src="./res/call.png" alt="">
+          </div>
+
       </div>
 
       <div class="menu">
         <div class="menu-content">
-          <div class="rbrnd">
+          <div class="rbrnd point">
             <span>Rebr</span>
             <span>and</span>
           </div>
@@ -39,9 +46,7 @@
       </div>
 
       <div class="content">
-        <div class="main">
-        </div>
-        <span class="">место под контент (автоматическое разширение)</span>
+        <div class="main"></div>
       </div>
 
       <div class="info">
@@ -49,25 +54,36 @@
       </div>
 
       <script>
+      let btnArea = document.querySelector('.btn-area');
+      let main = document.querySelector('.main')
       let menu = document.getElementsByClassName('menu')[0];
       let menuList = document.getElementsByClassName('point');
       let content = document.getElementsByClassName('content')[0];
       let btnMenu = document.getElementById('btn-menu');
+      let arr = ["View1.jpg","View3.jpg","bedroom2.1.jpg","bedroom2.3.jpg"]
+      let i = 0;
         btnMenu.onclick = function() {
           if (menu.style.display == 'flex') {
             btnMenu.src = "./res/menu2.png";
             menu.style.display = 'none';
+            btnArea.style.backgroundColor = "rgb(0, 0, 0)";
           } else {
-            btnMenu.src = "./res/close.png"
+            btnMenu.src = "./res/close2.png"
             menu.style.display = 'flex';
+            btnArea.style.backgroundColor = "rgb(30, 30, 30)";
           };
         };
-      for (let point of menuList) {
-        point.onclick = function () {
-          content.innerHTML = "Контент для пункта: "+point.innerText;
-          menu.style.display = 'none'
+      for (let i = 0; i < menuList.length; i++) {
+        menuList[i].onclick = function () {
+          content.innerHTML = cntnt[i];
+//          menu.style.display = 'none'
         };
-      }
+      };
+      setInterval( ()=>{
+        main.style.backgroundImage = "url(./res/"+arr[i]+")";
+        i++
+        i == 4 ? i = 0 : null;
+      }, 4000)
       </script>
 
   </body>
