@@ -13,16 +13,22 @@
       <div class="header ">
 
           <div class="btn-area">
-            <img id="btn-menu" src="./res/menu2.png" alt="">
+            <img id="btn-menu" src="./res/menu3.png" alt="">
           </div>
           <div class="">
-            <img src="./res/logo.png" alt="">
+            <img src="./res/logo2.png" alt="">
           </div>
           <div class="">
-            <img src="./res/call.png" alt="">
+            <img src="./res/call3.png" alt="">
           </div>
 
       </div>
+
+        <div class="content">
+          <div class="main">
+            <img src="./res/View1.jpg" alt="">
+          </div>
+        </div>
 
       <div class="menu">
         <div class="menu-content">
@@ -44,9 +50,12 @@
           </div>
         </div>
       </div>
-
-      <div class="content">
-        <div class="main"></div>
+      <div class="menu menu-call">
+        <div class="menu-content">
+          <div class="">
+            <a href="tel:012345">+123456789</a>
+          </div>
+        </div>
       </div>
 
       <div class="info">
@@ -54,36 +63,59 @@
       </div>
 
       <script>
+      window.onload = function () {
+        let id = slideShowStart();
+      }
       let btnArea = document.querySelector('.btn-area');
+      let btnCall = document.querySelectorAll('.header div')[2];
       let main = document.querySelector('.main')
+//      let slideImg = document.querySelector('.main img');
       let menu = document.getElementsByClassName('menu')[0];
+      let menuCall = document.getElementsByClassName('menu-call')[0];
       let menuList = document.getElementsByClassName('point');
       let content = document.getElementsByClassName('content')[0];
       let btnMenu = document.getElementById('btn-menu');
       let arr = ["View1.jpg","View3.jpg","bedroom2.1.jpg","bedroom2.3.jpg"]
-      let i = 0;
+
         btnMenu.onclick = function() {
           if (menu.style.display == 'flex') {
-            btnMenu.src = "./res/menu2.png";
+            btnMenu.src = "./res/menu3.png";
             menu.style.display = 'none';
-            btnArea.style.backgroundColor = "rgb(0, 0, 0)";
-          } else {
-            btnMenu.src = "./res/close2.png"
-            menu.style.display = 'flex';
             btnArea.style.backgroundColor = "rgb(30, 30, 30)";
+          } else {
+            btnMenu.src = "./res/close3.png";
+            menu.style.display = 'flex';
+            btnArea.style.backgroundColor = "rgb(60, 60, 60)";
           };
         };
+
+        btnCall.onclick = function () {
+          if (menuCall.style.display == 'flex') {
+            menuCall.style.display = 'none';
+            btnCall.style.backgroundColor = "rgb(30, 30, 30)";
+          } else {
+            menuCall.style.display = 'flex';
+            btnCall.style.backgroundColor = "rgb(60, 60, 60)";
+          };
+        }
+
       for (let i = 0; i < menuList.length; i++) {
         menuList[i].onclick = function () {
           content.innerHTML = cntnt[i];
-//          menu.style.display = 'none'
+          menu.style.display = 'none';
+          btnArea.style.backgroundColor = "rgb(30, 30, 30)";
+          btnMenu.src = "./res/menu3.png";
         };
       };
-      setInterval( ()=>{
-        main.style.backgroundImage = "url(./res/"+arr[i]+")";
-        i++
-        i == 4 ? i = 0 : null;
-      }, 4000)
+      function slideShowStart () {
+        let i = 0;
+          return setInterval( ()=>{
+            let slideImg = document.querySelector('.main img');
+            ++i == arr.length ? i = 0 : null;
+            console.log(i);
+            slideImg.src = "./res/"+arr[i];
+          }, 6000);
+      };
       </script>
 
   </body>
